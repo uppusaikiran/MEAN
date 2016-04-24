@@ -1,0 +1,19 @@
+MEAN
+
+MongoDB
+Express
+AngularJS
+Node.js
+
+Using Node.js modules for web server development
+-connec.js(sencha labs)
+-express.js
+-restify.js
+
+Rest uses 
+GET
+POST
+PUT
+DELETE
+
+Build a simple Web server
