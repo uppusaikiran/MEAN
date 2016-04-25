@@ -1,18 +1,18 @@
-var app = angular.module('app', []);
-app.controller('meetupsController', meetupsController);
+app.controller('meetupsController', ['$scope', '$resource', function ($scope, $resource) {
+  var Meetup = $resource('/api/meetups');
 
+  Meetup.query(function (results) {
+    $scope.meetups = results;
+  });
 
+  $scope.meetups = []
 
-function meetupsController ($scope) {
-	// $scope.meetupsCount = 10;
-
-	$scope.meetups = [
- 		{ name : "Meet 1"},
- 		{ name : "Meet 2"},
- 		{ name : "Meet 3"}
-	]
-	$scope.createMeetup =  function () {
-		$scope.meetups.push({ name : $scope.meetupName});
-		$scope.meetupsName = '';
-	}
-}
+  $scope.createMeetup = function () {
+    var meetup = new Meetup();
+    meetup.name = $scope.meetupName;
+    meetup.$save(function (result) {
+      $scope.meetups.push(result);
+      $scope.meetupName = '';
+    });
+  }
+}]);

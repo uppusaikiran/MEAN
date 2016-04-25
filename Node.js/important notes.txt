@@ -1,0 +1,1 @@
+There is a process object in the node just like the window object in the browser
