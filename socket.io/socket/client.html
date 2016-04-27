@@ -5,4 +5,7 @@
 	socket.on('alert',function(data){
 		console.log(data )
 	})
+
+	var click = 'ping from client \\o/ ' + Math.random()
+	socket.emit('click',click)
 </script>
