@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat Application</title>
+	<style>
+		#chat{
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div id="chat"></div>
+	<form action="" id="send-message">
+		<input type="text" size="35" id="message"></input>
+		<input type="submit"></input>
+	</form>
+	
+	<!-- include latest jquery -->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- Include the socket library from node_modules -->
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		jQuery(function($) {
+			// import all variables required
+			var socket = io.connect();
+			var $messageForm =$('send-message');
+			var $messageBox = $('message');
+			var $chat = $('chat');
+
+			//when submit form is submitted message is sent to server
+			$messageForm.submit(function(e) {
+				e.preventDefault();
+				socket.emit('send message',$messageBox.val);
+			//clear the message box
+				$messageBox.val('');
+			});
+		});
+	</script>
+</body>
+</html>
