@@ -1,7 +1,7 @@
 //imports
 var express = require('express'),
 	app = express(),
-	server = require('http').createServer(app)
+	server = require('http').createServer(app),
 	io = require('socket.io').listen(server);
 
 //listener
@@ -13,10 +13,13 @@ app.get('/',function (req,res) {
 });
 
 //receive the message
-io.socket.on('connection',function (socket) {
-	socket.on('send-message',function(data) {
+io.sockets.on('connection',function (socket) {
+	socket.on('send message',function(data) {
 		//and send it to all other users
-		io.sockets.emit('new message',data)
+		io.sockets.emit('new message',data);
+		//if we use the below command it sends to all user excpet me
+		// socket.broacast.emit('new-mesage',data);
+
 	});
 });
 
