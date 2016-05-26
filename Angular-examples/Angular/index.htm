@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-us" data-ng-app="">
+<head>
+	<title>Introduction to AngularJS</title>
+	<link  rel="stylesheet" href="bootstrap.min.css">
+	<script src="jquery-1.12.0.min.js"></script>
+	<script src="angular.min.js"></script>
+</head>
+<body>
+<!-- Basic Binding -->
+	<h3>Enter text here</h3>
+	<input type="text" data-ng-model="name"> {{ name }}
+<!-- Looping in angular -->
+	<div  data-ng-init ="names=['Dave',
+	'Napur','Kiran','Ram']">
+		<h3>Looping with ng-repeat directive</h3>
+		<ul>
+			<li data-ng-repeat="name in names">{{ name }}</li>
+		</ul>
+	</div>	
+<!-- Using filters -->
+	<h3>Enter filter text here</h3>
+	<input type="text" data-ng-model="customerName">
+	<div  data-ng-init="customers=[{name:'Kiran',city:'Vellore'},{name:'Ram',city:'delhi'},{name:'Dhoni',city:'Mumbai'}]">
+	<h3>Filtering in angular</h3>
+		<ul>
+			<li data-ng-repeat="personName in customers | filter:customerName | orderBy:'city'">{{ personName.name }} - {{ personName.city}} </li>
+		</ul>
+	</div>
+</body>
+</html>
