@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en-us" data-ng-app="demoApp">
 <head>
-	<title>Introduction to AngularJS</title>
+	<title>Introduction to AngularJS</title>				
 	<link  rel="stylesheet" href="bootstrap.min.css">
 	<script src="jquery-1.12.0.min.js"></script>
-	
+
 </head>
-<body> 
+<body>
 	<div data-ng-controller="SimpleController">
 	<!-- Basic Binding -->
 		<h3>Enter text here</h3>
@@ -16,7 +16,7 @@
 			<li data-ng-repeat="personName in customers | filter:name | orderBy:'city'">{{ personName.name }} - {{ personName.city}} </li>
 		</ul>
 	</div>
-	
+
 <script src="angular.min.js"></script>
 <script>
 	var demoApp = angular.module('demoApp', []);
@@ -28,7 +28,7 @@
 			{name:'ram',city:'Delhi'}
 		];
 	};
-	
+
 	demoApp.controller(controllers);
 </script>
 </body>
