@@ -1,0 +1,12 @@
+<h2>{{ mediaItem.name }}</h2>
+<div>{{ mediaItem.watched }}</div>
+<div>{{ mediaItem.category }}</div>
+<div>{{ mediaItem.year }}</div>
+<div class="tools">
+    <a (click)="onDelete()" class="delete">
+        remove
+    </a>
+    <a class="details">
+        watch
+    </a>
+</div>
